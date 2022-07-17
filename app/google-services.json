@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "556517599680",
+    "project_id": "filtar-fc039",
+    "storage_bucket": "filtar-fc039.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556517599680:android:3a606d1f35d07c28498025",
+        "android_client_info": {
+          "package_name": "com.filtar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556517599680-i766488pv9iaok0lc1o87rbvj78sspfe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.filtar",
+            "certificate_hash": "636ec7f8e9ebc097d9417189972ef8f1feb676f4"
+          }
+        },
+        {
+          "client_id": "556517599680-kiphud2ct8upoom8qsqfrg4t4pd4n821.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAg5WSBHGfiZsyzRklS5FBIyuzZGkyVmGw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556517599680-kiphud2ct8upoom8qsqfrg4t4pd4n821.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

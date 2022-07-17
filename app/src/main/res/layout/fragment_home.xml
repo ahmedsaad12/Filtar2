@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="lang"
+            type="String" />
+
+
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/llData"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/grey2"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:id="@+id/flSlider"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.viewpager.widget.ViewPager
+                                android:id="@+id/pager"
+                                android:layout_width="match_parent"
+                                android:layout_height="180dp" />
+
+                            <com.facebook.shimmer.ShimmerFrameLayout
+                                android:id="@+id/loaderSlider"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                app:shimmer_duration="800"
+
+
+                                >
+
+                                <include layout="@layout/slider_loader" />
+                            </com.facebook.shimmer.ShimmerFrameLayout>
+                        </FrameLayout>
+
+
+
+                        <ImageView
+                            android:id="@+id/imFiltar"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_marginTop="36dp"
+                            android:scaleType="fitXY"
+
+                            android:src="@drawable/filtar" />
+                        <LinearLayout
+                            android:id="@+id/llMostSale"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="27dp"
+                            android:orientation="vertical"
+                            android:paddingTop="23dp"
+                            android:paddingBottom="19dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/rounded_right"
+                                    android:rotation='@{lang.equals("en")?180:0}' />
+
+                                <androidx.legacy.widget.Space
+                                    android:layout_width="8dp"
+                                    android:layout_height="0dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/latest_product"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/font_bold" />
+
+
+                            </LinearLayout>
+
+                            <FrameLayout
+                                android:id="@+id/flMostSale"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recViewMostSaleProducts"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp" />
+
+                                <TextView
+                                    android:id="@+id/tvNoMostSaleProduct"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="48dp"
+                                    android:text="@string/no_products_to_show"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:visibility="gone"
+                                    android:fontFamily="@font/font_regular"
+                                    />
+
+                                <com.facebook.shimmer.ShimmerFrameLayout
+                                    android:id="@+id/loaderMostSales"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:shimmer_duration="800"
+
+
+                                    >
+
+                                    <include layout="@layout/product_loader_horizontal" />
+                                </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="16dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <View
+                                    android:layout_width="8dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/rounded_right"
+                                    android:rotation='@{lang.equals("en")?180:0}' />
+
+                                <androidx.legacy.widget.Space
+                                    android:layout_width="16dp"
+                                    android:layout_height="0dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/latest_explanation"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/font_bold" />
+
+
+                            </LinearLayout>
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recViewMostRecentProducts"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="16dp"
+                                    android:layout_marginStart="16dp" />
+
+                                <TextView
+                                    android:id="@+id/tvNoMostRecentProduct"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="48dp"
+                                    android:text="@string/no_products_to_show"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    android:visibility="gone" />
+
+                                <com.facebook.shimmer.ShimmerFrameLayout
+                                    android:id="@+id/loaderRecent"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    app:shimmer_duration="800"
+
+
+                                    >
+
+                                    <include layout="@layout/product_loader_horizontal" />
+                                </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+
+        </FrameLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</layout>
