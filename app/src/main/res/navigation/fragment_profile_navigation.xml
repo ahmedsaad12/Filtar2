@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.filtar.uis.activity_home.profile_module.FragmentProfile"
+        android:name="com.app.filtar.uis.activity_home.profile_module.FragmentProfile"
         android:label=""
         tools:layout="@layout/fragment_profile" />
 

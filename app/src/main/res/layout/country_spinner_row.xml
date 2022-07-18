@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="com.filtar.model.CountryCodeModel" />
+            type="com.app.filtar.model.CountryCodeModel" />
     </data>
 
     <LinearLayout

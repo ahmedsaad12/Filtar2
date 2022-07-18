@@ -11,7 +11,7 @@
 
         <variable
             name="model"
-            type="com.filtar.model.SignUpMarketModel" />
+            type="com.app.filtar.model.SignUpMarketModel" />
 
         <import type="android.text.Html" />
     </data>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -36,7 +35,8 @@
                         android:layout_width="48dp"
                         android:layout_height="40dp"
 
-                        android:src="@drawable/logo2" />
+                        android:src="@drawable/logo2"
+                        tools:ignore="ContentDescription" />
 
                     <androidx.legacy.widget.Space
                         android:layout_width="0dp"
@@ -60,7 +60,8 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_market" />
+                            android:src="@drawable/ic_market"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
 
@@ -92,7 +93,8 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_notification" />
+                            android:src="@drawable/ic_notification"
+                            tools:ignore="ContentDescription" />
 
                         <TextView
                             android:id="@+id/tvNotificationCount"
@@ -116,7 +118,7 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <com.filtar.uis.NonSwipeablePager
+        <com.app.filtar.uis.NonSwipeablePager
             android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="0dp"

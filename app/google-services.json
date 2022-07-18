@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:556517599680:android:c5131e7621df9816498025",
+        "mobilesdk_app_id": "1:556517599680:android:99425dfb3b559076498025",
         "android_client_info": {
-          "package_name": "com.filtar"
+          "package_name": "com.app.filtar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "556517599680-bc1faeds3vrlrtq0rtbr952c60gltc1p.apps.googleusercontent.com",
+          "client_id": "556517599680-u0o4acdnel7vu3o5cpu9pfp0s13dbtml.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.filtar",
+            "package_name": "com.app.filtar",
             "certificate_hash": "636ec7f8e9ebc097d9417189972ef8f1feb676f4"
           }
         },

@@ -10,7 +10,7 @@
 
         <variable
             name="model"
-            type="com.filtar.model.LoginModel" />
+            type="com.app.filtar.model.LoginModel" />
     </data>
 
     <LinearLayout

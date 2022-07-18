@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.filtar.uis.activity_home.market_module.FragmentMarket"
+        android:name="com.app.filtar.uis.activity_home.market_module.FragmentMarket"
         android:label=""
         tools:layout="@layout/fragment_market" />
 
