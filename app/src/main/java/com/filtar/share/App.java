@@ -16,8 +16,7 @@ import com.filtar.language.Language;
 
 public class App extends MultiDexApplication {
     public static final String CHANNEL_ID = "filtar_id_1099";
-    public static final String CHANNEL_NAME = "iltar_channel";
-    public static final String CHANNEL_ID_filter = "filter_id_1010";
+    public static final String CHANNEL_NAME = "filtar_channel";
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -35,7 +34,7 @@ public class App extends MultiDexApplication {
     private void createChannel() {
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            String sound_Path = "";
+            String sound_Path;
             Uri uri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             sound_Path = uri.toString();
 

@@ -13,8 +13,8 @@ public class BroadcastCancelNotification extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (manager != null) {
-            manager.cancel(Tags.not_id);
-        }
+//        if (manager != null) {
+//            manager.cancel(Tags.not_id);
+//        }
     }
 }
