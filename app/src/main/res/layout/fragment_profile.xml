@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -9,18 +9,53 @@
             name="lang"
             type="String" />
 
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.app.filtar.model.UserModel" />
+
 
     </data>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey9"
+        android:orientation="vertical">
 
-        <FrameLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+
+            >
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="@{model!=null?View.VISIBLE:View.GONE,default=gone}"
+
+                    >
+
+                    <include
+                        android:id="@+id/profileLayout"
+                        layout="@layout/profile_layout" />
+                </FrameLayout>
 
 
 
-        </FrameLayout>
+            </FrameLayout>
+
+        </androidx.core.widget.NestedScrollView>
 
 
+
+    </FrameLayout>
 
 </layout>

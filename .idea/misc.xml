@@ -6,6 +6,7 @@
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable-v24/edt_enable.xml" value="0.1295" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable-v24/rounded_color2.xml" value="0.126" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable-v24/rounded_grey.xml" value="0.126" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable-v24/rounded_white_stroke_black.xml" value="0.1385" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable-v24/rounded_white_stroke_grey7.xml" value="0.124" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable-v24/rounded_white_stroke_primary.xml" value="0.124" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/bottom_item_nav_bg.xml" value="0.124" />
@@ -15,17 +16,25 @@
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/edt_enable.xml" value="0.115" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/hor_line.xml" value="0.1" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/ic_arrow_down.xml" value="0.1675" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/ic_filter2.xml" value="0.144" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/ic_home.xml" value="0.144" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/ic_pin.xml" value="0.1675" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/rounded_color1.xml" value="0.144" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/rounded_color3.xml" value="0.144" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/rounded_primary.xml" value="0.123" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/rounded_red.xml" value="0.1385" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/rounded_white.xml" value="0.1675" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/rounded_white_stroke_black.xml" value="0.1" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/rounded_white_stroke_primary.xml" value="0.1675" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/shadow_top.xml" value="0.1295" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/drawable/spinner_arrow.xml" value="0.1675" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_add_filter.xml" value="0.19626168224299065" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_choose_user.xml" value="0.2627551020408163" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_contact_us.xml" value="0.2" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_intro_slider.xml" value="0.2" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_login.xml" value="0.25025641025641027" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_my_filter.xml" value="0.2" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_sign_up_market.xml" value="0.321875" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_sign_up_user.xml" value="0.176" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/activity_splash.xml" value="0.1935483870967742" />
@@ -36,18 +45,22 @@
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/base_fragment_market.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/base_fragment_more.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/base_fragment_profile.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/cander_row.xml" value="0.264" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/country_spinner_row.xml" value="0.11875" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/dailog_verification_code.xml" value="0.25025641025641027" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/dialog_choose_image.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_explanation.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_home.xml" value="0.1197339246119734" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_intro.xml" value="0.2509765625" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_login.xml" value="0.11875" />
-        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_main.xml" value="0.4" />
-        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_market.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_main.xml" value="0.2234375" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_market.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_more.xml" value="0.20454545454545456" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/fragment_profile.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/product_loader_horizontal.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/profile_layout.xml" value="0.2509765625" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/profile_login_layout.xml" value="0.2859025032938076" />
+        <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/slider.xml" value="0.100390625" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/slider_loader.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/toolbar.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Ahmed/AndroidStudioProjects/Filtar/app/src/main/res/layout/x.xml" value="0.25416666666666665" />

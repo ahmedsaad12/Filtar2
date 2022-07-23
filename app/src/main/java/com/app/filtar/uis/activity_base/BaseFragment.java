@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 
 
 import com.app.filtar.model.UserModel;
+import com.app.filtar.model.UserSettingsModel;
 import com.app.filtar.preferences.Preferences;
 
 import io.paperdb.Paper;
@@ -42,7 +43,15 @@ public class BaseFragment extends Fragment {
         Preferences preferences = Preferences.getInstance();
         preferences.createUpdateUserData(context, userModel);
     }
+    public void setUserSettings(UserSettingsModel userSettingsModel) {
+        Preferences preferences = Preferences.getInstance();
+        preferences.create_update_user_settings(context, userSettingsModel);
+    }
 
+    public UserSettingsModel getUserSettings() {
+        Preferences preferences = Preferences.getInstance();
+        return preferences.getUserSettings(context);
+    }
 
 
 }

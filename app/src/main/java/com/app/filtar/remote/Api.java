@@ -1,6 +1,6 @@
 package com.app.filtar.remote;
 
-import com.app.filtar.services.Service;
+import com.app.filtar.tags.services.Service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

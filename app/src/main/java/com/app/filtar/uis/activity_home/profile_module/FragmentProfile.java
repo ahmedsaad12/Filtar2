@@ -1,6 +1,7 @@
 package com.app.filtar.uis.activity_home.profile_module;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +16,12 @@ import com.app.filtar.R;
 import com.app.filtar.databinding.FragmentMoreBinding;
 import com.app.filtar.databinding.FragmentProfileBinding;
 import com.app.filtar.mvvm.GeneralMvvm;
+import com.app.filtar.uis.activity_add_filter.AddFilterActivity;
 import com.app.filtar.uis.activity_base.BaseFragment;
+import com.app.filtar.uis.activity_contact_us.ContactUsActivity;
 import com.app.filtar.uis.activity_home.HomeActivity;
+import com.app.filtar.uis.activity_myfilter.MyFilterActivity;
+import com.app.filtar.uis.activity_sign_up.SignUpUserActivity;
 
 
 public class FragmentProfile extends BaseFragment {
@@ -49,9 +54,37 @@ public class FragmentProfile extends BaseFragment {
     private void initView() {
         // fragmentHomeMvvm = ViewModelProviders.of(this).get(FragmentHomeMvvm.class);
         generalMvvm = ViewModelProviders.of(activity).get(GeneralMvvm.class);
-
+binding.setModel(getUserModel());
         binding.setLang(getLang());
-
+        binding.profileLayout.setLang(getLang());
+        binding.profileLayout.carViewContactUS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(activity, ContactUsActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.profileLayout.cardMyFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(activity, MyFilterActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.profileLayout.cardFilterSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(activity, AddFilterActivity.class);
+                startActivity(intent);
+            }
+        });
+        binding.profileLayout.carEditProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(activity, SignUpUserActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

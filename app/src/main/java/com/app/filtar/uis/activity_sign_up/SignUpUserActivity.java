@@ -74,7 +74,16 @@ public class SignUpUserActivity extends BaseActivity {
 
 
         if (getUserModel() != null) {
-
+            model.setAddress(getUserModel().getData().getAddress());
+            model.setFirst_name(getUserModel().getData().getFirst_name());
+            title=getResources().getString(R.string.edit_profile);
+            model.setLast_name(getUserModel().getData().getLast_name());
+            if (getUserModel().getData().getImage() != null) {
+                Glide.with(this)
+                        .asBitmap()
+                        .load(getUserModel().getData().getImage())
+                        .into(binding.image);
+            }
         } else {
             model.setPhone_code(phone_code);
             model.setPhone(phone);
@@ -137,7 +146,7 @@ public class SignUpUserActivity extends BaseActivity {
 
     private void navigteToHomeActivity() {
         Intent intent = new Intent(this, AddFilterActivity.class);
-        intent.putExtra("type",1);
+        intent.putExtra("type", 1);
         startActivity(intent);
         finish();
     }

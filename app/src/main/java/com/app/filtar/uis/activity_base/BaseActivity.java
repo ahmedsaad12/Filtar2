@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat;
 import com.app.filtar.databinding.ToolbarBinding;
 import com.app.filtar.language.Language;
 import com.app.filtar.model.UserModel;
+import com.app.filtar.model.UserSettingsModel;
 import com.app.filtar.preferences.Preferences;
 
 import io.paperdb.Paper;
@@ -69,6 +70,14 @@ public class BaseActivity extends AppCompatActivity {
         binding.toolbar.setBackgroundResource(background);
         binding.llBack.setOnClickListener(v -> finish());
     }
+    public void setUserSettings(UserSettingsModel userSettingsModel) {
+        Preferences preferences = Preferences.getInstance();
+        preferences.create_update_user_settings(this, userSettingsModel);
+    }
 
+    public UserSettingsModel getUserSettings() {
+        Preferences preferences = Preferences.getInstance();
+        return preferences.getUserSettings(this);
+    }
 
 }

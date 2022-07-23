@@ -35,6 +35,7 @@
             app:contentInsetRight="0dp"
             app:contentInsetStart="0dp"
             app:elevation="8dp"
+            android:theme="@style/AppTheme2"
             app:fabCradleMargin="10dp"
             app:fabCradleRoundedCornerRadius="10dp"
             app:fabCradleVerticalOffset="10dp">

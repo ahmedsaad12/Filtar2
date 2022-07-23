@@ -10,6 +10,9 @@
     <color name="black2">#110101</color>
     <color name="color1">#0285CE</color>
     <color name="color2">#E6F3FA</color>
+    <color name="color3">#FDF0EB</color>
+    <color name="color4">#F80000</color>
+
     <color name="black_trans">#55000000</color>
     <color name="transparent">#00000000</color>
     <color name="grey1">#f5f5f5</color>

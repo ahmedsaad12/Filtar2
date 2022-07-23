@@ -68,4 +68,29 @@
     <string name="follow_us">تابعنا</string>
     <string name="rate_app">قييم التطبيق</string>
     <string name="share_app">شارك التطبيق</string>
+    <string name="start">ابدا</string>
+    <string name="hey_you">اهلا بك</string>
+    <string name="in_filter_app">في تطبيق <font color="#0285CE">الفلتر</font></string>
+    <string name="first_app">التطبيق الاول في الوطن العربي متخصص في  \n الفلاتر ومجال تنقية المياه</string>
+    <string name="know_you">عارفينك</string>
+    <string name="busy">دايما <font color="#0285CE">مشغول</font> </string>
+    <string name="we_think">وعشان كده بنفكرك مواعيد تغيير فلترك \n عشان تحافظ علي صحتك</string>
+    <string name="market">متجر</string>
+    <string name="buy_online"><font color="#0285CE">اونلاين</font>تقدر تشتري </string>
+    <string name="shop_buy">تسوق و اشتري الفلتر او قطع الغيار من التجار علي \n  تطبيقنا بسهولة</string>
+    <string name="next_date">Next change date:</string>
+    <string name="month">Month</string>
+    <string name="logout">Logout</string>
+    <string name="my_orders">My Orders</string>
+    <string name="my_filter">My Filter</string>
+    <string name="filter_setting">Filter Setting</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="field_required">Field Required</string>
+    <string name="message">Message</string>
+    <string name="send">Send</string>
+    <string name="suc">Sucess</string>
+    <string name="the_plugs_to_be_changed_in_the_filter">The plugs to be changed in the filter</string>
+    <string name="num">Num</string>
+    <string name="search_for_what">Search For What</string>
 </resources>

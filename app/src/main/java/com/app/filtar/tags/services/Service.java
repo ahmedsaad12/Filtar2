@@ -1,8 +1,10 @@
-package com.app.filtar.services;
+package com.app.filtar.tags.services;
 
 
 
 import com.app.filtar.model.AddFlterModel;
+import com.app.filtar.model.AllAppoinmentModel;
+import com.app.filtar.model.SliderDataModel;
 import com.app.filtar.model.StatusResponse;
 import com.app.filtar.model.UserModel;
 
@@ -13,9 +15,11 @@ import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.Query;
 
 public interface Service {
 
@@ -64,5 +68,11 @@ public interface Service {
 
 
     );
+    @GET("api/firstCleaningTime")
+    Single<Response<AllAppoinmentModel>> getfirstCleaningTime(@Query("user_id") String user_id
 
+
+    );
+    @GET("api/sliders")
+    Single<Response<SliderDataModel>> getSlider();
 }

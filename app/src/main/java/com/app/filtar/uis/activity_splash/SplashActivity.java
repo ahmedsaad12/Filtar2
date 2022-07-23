@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
@@ -14,6 +16,7 @@ import com.app.filtar.R;
 import com.app.filtar.databinding.ActivitySplashBinding;
 import com.app.filtar.uis.activity_base.BaseActivity;
 import com.app.filtar.uis.activity_home.HomeActivity;
+import com.app.filtar.uis.activity_intro_slider.IntroSliderActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,6 +30,7 @@ import io.reactivex.schedulers.Schedulers;
 public class SplashActivity extends BaseActivity {
     private ActivitySplashBinding binding;
     private CompositeDisposable disposable = new CompositeDisposable();
+    private ActivityResultLauncher<Intent> launcher;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,7 +45,11 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void initView() {
-
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+            if ( result.getResultCode() == RESULT_OK) {
+              navigateToHomeActivity();
+            }
+        });
         Observable.timer(2, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.computation())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -53,17 +61,20 @@ public class SplashActivity extends BaseActivity {
 
                     @Override
                     public void onNext(@NonNull Long aLong) {
-                        if(getUserModel()==null){
-                        navigateToHomeActivity();}
-                        else{
-                            if(getUserModel().getData().getStore_name()==null){
-                                navigateToHomeActivity();
-                            }
-                            else{
+                        if (getUserSettings()==null||getUserSettings().isFirstTime()) {
+                            navigateToIntroSliderActivity();
 
+                        }else {
+                            if (getUserModel() == null) {
+                                navigateToHomeActivity();
+                            } else {
+                                if (getUserModel().getData().getStore_name() == null) {
+                                    navigateToHomeActivity();
+                                } else {
+
+                                }
                             }
                         }
-
                     }
 
                     @Override
@@ -80,7 +91,11 @@ public class SplashActivity extends BaseActivity {
 
     }
 
+    private void navigateToIntroSliderActivity() {
 
+        Intent intent = new Intent(this, IntroSliderActivity.class);
+        launcher.launch(intent);
+    }
 
 
     private void navigateToHomeActivity() {
