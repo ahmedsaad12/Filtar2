@@ -12,8 +12,11 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.filtar.R;
+import com.app.filtar.adapter.RecentProductAdapter;
 import com.app.filtar.adapter.SliderAdapter;
 import com.app.filtar.databinding.FragmentHomeBinding;
 import com.app.filtar.model.AllAppoinmentModel;
@@ -39,6 +42,7 @@ public class FragmentHome extends BaseFragment {
     private SliderAdapter sliderAdapter;
     private List<SliderDataModel.SliderModel> sliderModelList;
     private Timer timer;
+    private RecentProductAdapter recentProductAdapter;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -70,7 +74,12 @@ public class FragmentHome extends BaseFragment {
             }
             // binding.swipeRefresh.setRefreshing(isLoading);
         });
-
+        fragmentHomeMvvm.getIsLoadingRecentProduct().observe(activity, isLoading -> {
+            if (!isLoading) {
+                binding.loaderRecent.stopShimmer();
+                binding.loaderRecent.setVisibility(View.GONE);
+            }
+        });
         fragmentHomeMvvm.getSliderDataModelMutableLiveData().observe(activity, new androidx.lifecycle.Observer<SliderDataModel>() {
             @Override
             public void onChanged(SliderDataModel sliderDataModel) {
@@ -86,7 +95,19 @@ public class FragmentHome extends BaseFragment {
 
             }
         });
+        fragmentHomeMvvm.getOnRecentProductDataModel().observe(activity, list -> {
+            binding.swipeRefresh.setRefreshing(false);
+            if (list.size() > 0) {
+                binding.tvNoMostRecentProduct.setVisibility(View.GONE);
+            } else {
+                binding.tvNoMostRecentProduct.setVisibility(View.VISIBLE);
+            }
+            if (recentProductAdapter != null) {
+                recentProductAdapter.updateList(list);
 
+            }
+
+        });
 
         sliderAdapter = new SliderAdapter(sliderModelList, activity);
         binding.pager.setAdapter(sliderAdapter);
@@ -94,6 +115,11 @@ public class FragmentHome extends BaseFragment {
         binding.pager.setPadding(80, 0, 80, 0);
         binding.pager.setPageMargin(20);
         fragmentHomeMvvm.getSlider();
+        recentProductAdapter = new RecentProductAdapter(activity, this, getLang());
+        binding.recViewMostRecentProducts.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
+        binding.recViewMostRecentProducts.setAdapter(recentProductAdapter);
+        fragmentHomeMvvm.getRecentProduct();
+
         generalMvvm = ViewModelProviders.of(activity).get(GeneralMvvm.class);
 generalMvvm.getAllAppoinmentModelMutableLiveData().observe(activity, new Observer<AllAppoinmentModel>() {
     @Override

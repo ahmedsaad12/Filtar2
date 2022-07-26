@@ -93,4 +93,14 @@
     <string name="the_plugs_to_be_changed_in_the_filter">The plugs to be changed in the filter</string>
     <string name="num">Num</string>
     <string name="search_for_what">Search For What</string>
+    <string name="filter">Filter According To</string>
+    <string name="price">Price</string>
+    <string name="maximum">Maximum</string>
+    <string name="minimum">minimum</string>
+    <string name="specifications">"Specifications "</string>
+    <string name="add_to_cart">Add To Card</string>
+    <string name="see_all">See All</string>
+    <string name="egp">EGP</string>
+    <string name="blog_details">Blog Detials</string>
+    <string name="share_with">"Share With : "</string>
 </resources>

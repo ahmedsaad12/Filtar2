@@ -4,6 +4,11 @@ package com.app.filtar.tags.services;
 
 import com.app.filtar.model.AddFlterModel;
 import com.app.filtar.model.AllAppoinmentModel;
+import com.app.filtar.model.BlogDataModel;
+import com.app.filtar.model.CategoryDataModel;
+import com.app.filtar.model.ProductDataModel;
+import com.app.filtar.model.SingleBlogModel;
+import com.app.filtar.model.SingleProductModel;
 import com.app.filtar.model.SliderDataModel;
 import com.app.filtar.model.StatusResponse;
 import com.app.filtar.model.UserModel;
@@ -75,4 +80,25 @@ public interface Service {
     );
     @GET("api/sliders")
     Single<Response<SliderDataModel>> getSlider();
+    @GET("api/home/blogs")
+    Single<Response<BlogDataModel>> getBlogs();
+
+    @GET("api/home/blogs")
+    Single<Response<SingleBlogModel>> getBlogDetails(@Query("blog_id") String blog_id);
+    @GET("api/allCategories")
+    Single<Response<CategoryDataModel>> getCategory();
+
+
+    @GET("api/latestProducts")
+    Single<Response<ProductDataModel>> getRecentProduct();
+
+    @GET("api/products")
+    Single<Response<ProductDataModel>> searchByCatProduct(@Query("category_id") String category_id,
+                                                          @Query("provider_id") String provider_id,
+                                                          @Query("min_price") String min_price,
+                                                          @Query("max_price") String max_price,
+                                                          @Query("search_word") String search_word);
+    @GET("api/product_details")
+    Single<Response<SingleProductModel>> getSingleProduct(
+                                                          @Query("product_id") String product_id);
 }
