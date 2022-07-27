@@ -103,4 +103,6 @@
     <string name="egp">EGP</string>
     <string name="blog_details">Blog Detials</string>
     <string name="share_with">"Share With : "</string>
+    <string name="no_notifications_to_show">No Notification Show</string>
+    <string name="notifications">Noyifications</string>
 </resources>

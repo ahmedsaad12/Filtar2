@@ -173,7 +173,7 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="13dp"
+                                    android:padding="4dp"
                                     android:orientation="horizontal">
 
                                     <de.hdodenhof.circleimageview.CircleImageView
@@ -219,7 +219,10 @@
 
                                         <FrameLayout
                                             android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content">
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center"
+
+                                            >
 
                                             <TextView
                                                 android:id="@+id/tvRecentArrive"
@@ -244,7 +247,7 @@
                                             android:clickable="false"
                                             android:longClickable="false"
                                             android:padding="3dp"
-                                            android:rotation='@{lang.equals("en")?180:0}'
+                                            android:rotation='@{lang.equals("ar")?180:0}'
                                             android:src="@drawable/ic_right_arrow"
                                             app:tint="@color/white" />
                                     </LinearLayout>

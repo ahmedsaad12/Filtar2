@@ -76,8 +76,8 @@ public class FragmentHome extends BaseFragment {
         });
         fragmentHomeMvvm.getIsLoadingRecentProduct().observe(activity, isLoading -> {
             if (!isLoading) {
-                binding.loaderRecent.stopShimmer();
-                binding.loaderRecent.setVisibility(View.GONE);
+                binding.loaderMostSales.stopShimmer();
+                binding.loaderMostSales.setVisibility(View.GONE);
             }
         });
         fragmentHomeMvvm.getSliderDataModelMutableLiveData().observe(activity, new androidx.lifecycle.Observer<SliderDataModel>() {
@@ -116,8 +116,8 @@ public class FragmentHome extends BaseFragment {
         binding.pager.setPageMargin(20);
         fragmentHomeMvvm.getSlider();
         recentProductAdapter = new RecentProductAdapter(activity, this, getLang());
-        binding.recViewMostRecentProducts.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
-        binding.recViewMostRecentProducts.setAdapter(recentProductAdapter);
+        binding.recViewMostSaleProducts.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
+        binding.recViewMostSaleProducts.setAdapter(recentProductAdapter);
         fragmentHomeMvvm.getRecentProduct();
 
         generalMvvm = ViewModelProviders.of(activity).get(GeneralMvvm.class);

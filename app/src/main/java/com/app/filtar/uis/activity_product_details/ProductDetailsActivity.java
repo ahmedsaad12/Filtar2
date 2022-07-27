@@ -6,6 +6,7 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
@@ -47,6 +48,7 @@ public class ProductDetailsActivity extends BaseActivity {
     }
 
     private void initView() {
+        setUpToolbar(binding.toolbar, getString(R.string.notifications), R.color.white, R.color.black);
 
         imagesList = new ArrayList<>();
         binding.setLang(getLang());
@@ -124,4 +126,9 @@ public class ProductDetailsActivity extends BaseActivity {
         }
 
     }
+    public void addProductToCart(ProductModel productModel) {
+
+
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.app.filtar.uis.activity_home.market_module;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +31,7 @@ import com.app.filtar.mvvm.FragmentMarketMvvm;
 import com.app.filtar.mvvm.GeneralMvvm;
 import com.app.filtar.uis.activity_base.BaseFragment;
 import com.app.filtar.uis.activity_home.HomeActivity;
+import com.app.filtar.uis.activity_product_details.ProductDetailsActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -85,9 +87,12 @@ public class FragmentMarket extends BaseFragment {
             }
 
             if (mainProductCategoryAdapter != null) {
+                CategoryModel categoryModel = list.get(0);
+                categoryModel.setSelected(true);
+                list.set(0,categoryModel);
                 mainProductCategoryAdapter.updateList(list);
                 fragmentMarketMvvm.getCategoryId().setValue(list.get(0).getId());
-                fragmentMarketMvvm.searchProduct(query, priceMin, priceMax,null);
+                fragmentMarketMvvm.searchProduct(query, priceMin, priceMax, null);
 
             }
         });
@@ -109,7 +114,7 @@ public class FragmentMarket extends BaseFragment {
             public void onClick(View view) {
                 priceMin = binding.edtMin.getText().toString();
                 priceMax = binding.edtMax.getText().toString();
-                fragmentMarketMvvm.searchProduct(fragmentMarketMvvm.getQuery().getValue(), priceMin, priceMax,null);
+                fragmentMarketMvvm.searchProduct(fragmentMarketMvvm.getQuery().getValue(), priceMin, priceMax, null);
                 closeSheet();
 
             }
@@ -118,7 +123,7 @@ public class FragmentMarket extends BaseFragment {
         binding.swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                fragmentMarketMvvm.searchProduct(fragmentMarketMvvm.getQuery().getValue(), priceMin, priceMax,null);
+                fragmentMarketMvvm.searchProduct(fragmentMarketMvvm.getQuery().getValue(), priceMin, priceMax, null);
 
             }
         });
@@ -153,7 +158,7 @@ public class FragmentMarket extends BaseFragment {
                 .distinctUntilChanged()
                 .subscribe(query -> {
                     fragmentMarketMvvm.getQuery().postValue(query);
-                    fragmentMarketMvvm.searchProduct(query, priceMin, priceMax,null);
+                    fragmentMarketMvvm.searchProduct(query, priceMin, priceMax, null);
                 });
         fragmentMarketMvvm.getCategory();
 
@@ -221,10 +226,13 @@ public class FragmentMarket extends BaseFragment {
 
     public void getProduct(CategoryModel categoryModel) {
         fragmentMarketMvvm.setCategoryId(categoryModel.getId(), activity, getUserModel());
-        fragmentMarketMvvm.searchProduct(fragmentMarketMvvm.getQuery().getValue(), priceMin, priceMax,null);
+        fragmentMarketMvvm.searchProduct(fragmentMarketMvvm.getQuery().getValue(), priceMin, priceMax, null);
 
     }
 
     public void showProductDetails(ProductModel productModel) {
+        Intent intent = new Intent(activity, ProductDetailsActivity.class);
+        intent.putExtra("id", productModel.getId());
+        startActivity(intent);
     }
 }

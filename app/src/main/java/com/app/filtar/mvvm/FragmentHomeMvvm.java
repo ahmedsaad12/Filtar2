@@ -107,9 +107,11 @@ public class FragmentHomeMvvm extends AndroidViewModel {
 
                     @Override
                     public void onSuccess(@NonNull Response<ProductDataModel> response) {
+                        getIsLoadingRecentProduct().setValue(false);
+
                         if (response.isSuccessful() && response.body() != null) {
                             if (response.body().getData() != null && response.body().getStatus() == 200) {
-                            
+                            getOnRecentProductDataModel().setValue(response.body().getData());
                             }
                         }
                     }

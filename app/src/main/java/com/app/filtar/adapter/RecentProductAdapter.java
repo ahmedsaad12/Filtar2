@@ -47,7 +47,7 @@ public class RecentProductAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        FilterProductAdapter.MyHolder myHolder = (FilterProductAdapter.MyHolder) holder;
+      MyHolder myHolder = (MyHolder) holder;
 
         ProductModel productModel = list.get(position);
 

@@ -1,36 +1,37 @@
 package com.app.filtar.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class BlogModel implements Serializable {
-    private String id;
-    private String date_time;
-    private String title;
-    private String details;
-    private String image;
-    private String video;
+   private String id;
+   private String link;
+   private String title;
+   private String desc;
+   private String created_at;
+private List<BlogTagsModel> tags;
 
-    public String getId() {
-        return id;
-    }
+   public String getId() {
+      return id;
+   }
 
-    public String getDate_time() {
-        return date_time;
-    }
+   public String getLink() {
+      return link;
+   }
 
-    public String getTitle() {
-        return title;
-    }
+   public String getTitle() {
+      return title;
+   }
 
-    public String getDetails() {
-        return details;
-    }
+   public String getDesc() {
+      return desc;
+   }
 
-    public String getImage() {
-        return image;
-    }
+   public String getCreated_at() {
+      return created_at;
+   }
 
-    public String getVideo() {
-        return video;
-    }
+   public List<BlogTagsModel> getTags() {
+      return tags;
+   }
 }

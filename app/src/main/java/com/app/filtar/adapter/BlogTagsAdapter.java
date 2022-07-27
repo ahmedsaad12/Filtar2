@@ -11,14 +11,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.filtar.R;
+import com.app.filtar.databinding.BlogTagsRowBinding;
 import com.app.filtar.databinding.MainCategoryRowBinding;
+import com.app.filtar.model.BlogTagsModel;
 import com.app.filtar.model.CategoryModel;
+import com.app.filtar.uis.activity_home.explanation_module.FragmentExplanation;
 import com.app.filtar.uis.activity_home.market_module.FragmentMarket;
 
 import java.util.List;
 
-public class MainProductCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<CategoryModel> list;
+public class BlogTagsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private List<BlogTagsModel> list;
     private Context context;
     private LayoutInflater inflater;
     private Fragment fragment;
@@ -26,7 +29,7 @@ public class MainProductCategoryAdapter extends RecyclerView.Adapter<RecyclerVie
     private int currentPos = 0;
     private MyHolder oldHolder;
 
-    public MainProductCategoryAdapter(Context context, Fragment fragment, String lang) {
+    public BlogTagsAdapter(Context context, Fragment fragment, String lang) {
         this.context = context;
         this.fragment = fragment;
         this.lang = lang;
@@ -36,7 +39,7 @@ public class MainProductCategoryAdapter extends RecyclerView.Adapter<RecyclerVie
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        MainCategoryRowBinding binding = DataBindingUtil.inflate(inflater, R.layout.main_category_row, parent, false);
+        BlogTagsRowBinding binding = DataBindingUtil.inflate(inflater, R.layout.blog_tags_row, parent, false);
         return new MyHolder(binding);
     }
 
@@ -55,13 +58,13 @@ public class MainProductCategoryAdapter extends RecyclerView.Adapter<RecyclerVie
 
         myHolder.itemView.setOnClickListener(v -> {
 
-            CategoryModel category = list.get(myHolder.getAdapterPosition());
+            BlogTagsModel category = list.get(myHolder.getAdapterPosition());
 
             if (!category.isSelected()) {
 
                 if (oldHolder != null) {
 
-                    CategoryModel oldCategory = list.get(currentPos);
+                    BlogTagsModel oldCategory = list.get(currentPos);
                     oldCategory.setSelected(false);
                     list.set(currentPos, oldCategory);
                     oldHolder.binding.setModel(oldCategory);
@@ -75,9 +78,9 @@ public class MainProductCategoryAdapter extends RecyclerView.Adapter<RecyclerVie
 
                 currentPos = myHolder.getAdapterPosition();
                 oldHolder = myHolder;
-                if (fragment instanceof FragmentMarket) {
-                    FragmentMarket fragmentProducts = (FragmentMarket) fragment;
-                    fragmentProducts.getProduct(list.get(myHolder.getAdapterPosition()));
+                if (fragment instanceof FragmentExplanation) {
+                    FragmentExplanation fragmentProducts = (FragmentExplanation) fragment;
+                    fragmentProducts.show(list.get(myHolder.getAdapterPosition()));
                 }
 
             }
@@ -93,16 +96,16 @@ public class MainProductCategoryAdapter extends RecyclerView.Adapter<RecyclerVie
 
 
     public static class MyHolder extends RecyclerView.ViewHolder {
-        public MainCategoryRowBinding binding;
+        public BlogTagsRowBinding binding;
 
-        public MyHolder(MainCategoryRowBinding binding) {
+        public MyHolder(BlogTagsRowBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 
         }
     }
 
-    public void updateList(List<CategoryModel> list) {
+    public void updateList(List<BlogTagsModel> list) {
         this.list = list;
         notifyDataSetChanged();
     }

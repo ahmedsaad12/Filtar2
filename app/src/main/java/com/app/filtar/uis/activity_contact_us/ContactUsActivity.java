@@ -54,7 +54,13 @@ public class ContactUsActivity extends BaseActivity {
 
         binding.btnSend.setOnClickListener(view -> {
             if (contactUsModel.isDataValid(this)) {
-                contactusActivityMvvm.contactUs(this, contactUsModel);
+                if(getUserModel().getData().getStore_name()==null){
+                contactusActivityMvvm.contactUs(this, contactUsModel,getUserModel().getData().getId(),null);
+            }
+            else {
+                    contactusActivityMvvm.contactUs(this, contactUsModel,null,getUserModel().getData().getId());
+
+                }
             }
         });
         contactusActivityMvvm.send.observe(this, aBoolean -> {

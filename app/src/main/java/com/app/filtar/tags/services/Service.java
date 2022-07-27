@@ -5,7 +5,9 @@ package com.app.filtar.tags.services;
 import com.app.filtar.model.AddFlterModel;
 import com.app.filtar.model.AllAppoinmentModel;
 import com.app.filtar.model.BlogDataModel;
+import com.app.filtar.model.BlogTagsDataModel;
 import com.app.filtar.model.CategoryDataModel;
+import com.app.filtar.model.NotificationDataModel;
 import com.app.filtar.model.ProductDataModel;
 import com.app.filtar.model.SingleBlogModel;
 import com.app.filtar.model.SingleProductModel;
@@ -21,6 +23,7 @@ import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -80,15 +83,15 @@ public interface Service {
     );
     @GET("api/sliders")
     Single<Response<SliderDataModel>> getSlider();
-    @GET("api/home/blogs")
-    Single<Response<BlogDataModel>> getBlogs();
-
+    @GET("api/searchExplanations")
+    Single<Response<BlogDataModel>> getBlogs(@Query("tag_title") String tag_title);
     @GET("api/home/blogs")
     Single<Response<SingleBlogModel>> getBlogDetails(@Query("blog_id") String blog_id);
     @GET("api/allCategories")
     Single<Response<CategoryDataModel>> getCategory();
 
-
+    @GET("api/allExplanationsTags")
+    Single<Response<BlogTagsDataModel>> getTags();
     @GET("api/latestProducts")
     Single<Response<ProductDataModel>> getRecentProduct();
 
@@ -101,4 +104,16 @@ public interface Service {
     @GET("api/product_details")
     Single<Response<SingleProductModel>> getSingleProduct(
                                                           @Query("product_id") String product_id);
+    @FormUrlEncoded
+    @POST("api/contactUs")
+    Single<Response<StatusResponse>> contactUs(@Field("message") String message,
+                                               @Field("user_id") String user_id,
+                                               @Field("provider_id") String provider_id
+
+    );
+    @GET("api/notifications")
+    Single<Response<NotificationDataModel>> getNotifications(@Query("user_id") String user_id,
+                                                             @Query("provider_id") String provider_id
+    );
+
 }

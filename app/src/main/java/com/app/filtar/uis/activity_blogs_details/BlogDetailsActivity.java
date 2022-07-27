@@ -58,9 +58,9 @@ public class BlogDetailsActivity extends BaseActivity {
             if (blogModel!=null){
                 binding.setModel(blogModel);
                 this.blogModel=blogModel;
-                if (blogModel.getVideo() != null) {
+                if (blogModel.getLink() != null) {
                     binding.image.setVisibility(View.GONE);
-                    setUpYoutube( blogModel.getVideo());
+                    setUpYoutube( blogModel.getLink());
 
 
 

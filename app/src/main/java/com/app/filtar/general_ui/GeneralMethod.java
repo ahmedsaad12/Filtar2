@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.databinding.BindingAdapter;
 
 
+import com.app.filtar.model.BlogModel;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -219,6 +220,15 @@ public class GeneralMethod {
 
 
 
+    @BindingAdapter("getTags")
+    public static void getTags(TextView textView, BlogModel blogModel) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
+       String tags="";
+       for(int i=0;i<blogModel.getTags().size();i++){
+           tags+="#"+blogModel.getTags().get(i).getTitle();
+       }
+       textView.setText(tags);
+    }
 
 
 

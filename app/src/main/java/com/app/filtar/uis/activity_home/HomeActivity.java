@@ -23,6 +23,8 @@ import com.app.filtar.mvvm.ActivityHomeMvvm;
 import com.app.filtar.mvvm.GeneralMvvm;
 import com.app.filtar.uis.activity_base.BaseActivity;
 import com.app.filtar.uis.activity_home.main_module.FragmentMain;
+import com.app.filtar.uis.activity_login.LoginActivity;
+import com.app.filtar.uis.activity_notification.NotificationActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +91,16 @@ public class HomeActivity extends BaseActivity  {
                 setUserModel(userModel);
             }
         });
+        binding.flNotification.setOnClickListener(v -> {
+            if (getUserModel() != null) {
+             //
+                //   binding.setCount("0");
+                Intent intent = new Intent(this, NotificationActivity.class);
+                startActivity(intent);
+            } else {
+                navigationToLoginActivity();
+            }
+        });
 
 
         if (userModel != null) {
@@ -152,5 +164,9 @@ public class HomeActivity extends BaseActivity  {
                         });
         builder.show();
     }
-
+    private void navigationToLoginActivity() {
+        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }
