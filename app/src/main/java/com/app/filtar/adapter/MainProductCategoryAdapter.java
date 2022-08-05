@@ -14,6 +14,7 @@ import com.app.filtar.R;
 import com.app.filtar.databinding.MainCategoryRowBinding;
 import com.app.filtar.model.CategoryModel;
 import com.app.filtar.uis.activity_home.market_module.FragmentMarket;
+import com.app.filtar.uis.activity_market_detials.MarketDetialsActivity;
 
 import java.util.List;
 
@@ -79,7 +80,13 @@ public class MainProductCategoryAdapter extends RecyclerView.Adapter<RecyclerVie
                     FragmentMarket fragmentProducts = (FragmentMarket) fragment;
                     fragmentProducts.getProduct(list.get(myHolder.getAdapterPosition()));
                 }
-
+                else if (fragment instanceof com.app.filtar.uis.activity_home_provider.market_module.FragmentMarket) {
+                    com.app.filtar.uis.activity_home_provider.market_module.FragmentMarket fragmentProducts = (com.app.filtar.uis.activity_home_provider.market_module.FragmentMarket)fragment;
+                    fragmentProducts.getProduct(list.get(myHolder.getAdapterPosition()));
+                }else if (context instanceof MarketDetialsActivity) {
+                    MarketDetialsActivity fragmentMarket = (MarketDetialsActivity) context;
+                    fragmentMarket.getProduct(list.get(holder.getAdapterPosition()));
+                }
             }
 
         });

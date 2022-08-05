@@ -11,6 +11,10 @@ public class BlogTagsModel implements Serializable {
       return id;
    }
 
+   public BlogTagsModel(String title) {
+      this.title = title;
+   }
+
    public int getExplanation_id() {
       return explanation_id;
    }

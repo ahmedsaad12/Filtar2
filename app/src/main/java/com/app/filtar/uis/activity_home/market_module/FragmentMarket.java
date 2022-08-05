@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,12 +88,16 @@ public class FragmentMarket extends BaseFragment {
             }
 
             if (mainProductCategoryAdapter != null) {
+                list.add(0,new CategoryModel(getResources().getString(R.string.all)));
                 CategoryModel categoryModel = list.get(0);
                 categoryModel.setSelected(true);
+                categoryModel.setId("");
                 list.set(0,categoryModel);
+
+                Log.e("dlldl",categoryModel.getTitle());
                 mainProductCategoryAdapter.updateList(list);
                 fragmentMarketMvvm.getCategoryId().setValue(list.get(0).getId());
-                fragmentMarketMvvm.searchProduct(query, priceMin, priceMax, null);
+                fragmentMarketMvvm.searchProduct(query, priceMin, priceMax, "");
 
             }
         });

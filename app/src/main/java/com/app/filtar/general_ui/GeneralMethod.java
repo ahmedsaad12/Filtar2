@@ -224,15 +224,29 @@ public class GeneralMethod {
     public static void getTags(TextView textView, BlogModel blogModel) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.ENGLISH);
        String tags="";
+       if(blogModel!=null){
        for(int i=0;i<blogModel.getTags().size();i++){
            tags+="#"+blogModel.getTags().get(i).getTitle();
        }
        textView.setText(tags);
+    }}
+
+
+
+    @BindingAdapter("status")
+    public static void orderStatus(TextView textView, String status) {
+        if (status != null) {
+            if (status.equals("new")) {
+                textView.setText("جارى الموافقه على طلبك ");
+            } else if (status.equals("refused_by_provider")) {
+                textView.setText("تم رفض طلبك");
+            } else if (status.equals("accepted_by_provider")) {
+                textView.setText("تم قبول طلبك");
+
+            }
+        }
+
     }
-
-
-
-
 
 
 }

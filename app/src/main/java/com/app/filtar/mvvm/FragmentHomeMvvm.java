@@ -9,9 +9,13 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 
+import com.app.filtar.model.AllAppoinmentModel;
+import com.app.filtar.model.BlogModel;
 import com.app.filtar.model.ProductDataModel;
 import com.app.filtar.model.ProductModel;
+import com.app.filtar.model.SingleBlogDataModel;
 import com.app.filtar.model.SliderDataModel;
+import com.app.filtar.model.UserModel;
 import com.app.filtar.remote.Api;
 import com.app.filtar.tags.Tags;
 
@@ -32,11 +36,19 @@ public class FragmentHomeMvvm extends AndroidViewModel {
     private CompositeDisposable disposable = new CompositeDisposable();
     private MutableLiveData<Boolean> isLoadingLiveData;
     private MutableLiveData<List<ProductModel>> onRecentProductDataModel;
+    private MutableLiveData<BlogModel> onDataSuccess;
 
     public FragmentHomeMvvm(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
     }
+    public MutableLiveData<BlogModel> getOnDataSuccess() {
+        if (onDataSuccess == null) {
+            onDataSuccess = new MutableLiveData<>();
+        }
+        return onDataSuccess;
+    }
+
 
     public MutableLiveData<List<ProductModel>> getOnRecentProductDataModel() {
         if (onRecentProductDataModel == null) {
@@ -123,6 +135,41 @@ public class FragmentHomeMvvm extends AndroidViewModel {
                 });
     }
 
+    public void getLastBLog(){
+
+
+        Api.getService(Tags.base_url).getSingleBlogs()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SingleObserver<Response<SingleBlogDataModel>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        disposable.add(d);
+                    }
+
+                    @Override
+                    public void onSuccess(@NonNull Response<SingleBlogDataModel> response) {
+
+                        Log.e("dlldl",response.code()+" "+response.body().getStatus());
+                        try {
+                            Log.e("Elllfl",response.code()+""+response.errorBody().string());
+                        } catch (Exception e) {
+                            //e.printStackTrace();
+                        }
+                        if (response.isSuccessful()){
+                            if (response.body().getStatus()==200){
+                                getOnDataSuccess().postValue(response.body().getData());
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                        Log.e("error",e.toString());
+                    }
+                });
+    }
 
     @Override
     protected void onCleared() {

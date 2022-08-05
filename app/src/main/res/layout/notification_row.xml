@@ -5,6 +5,7 @@
         <variable
             name="model"
             type="com.app.filtar.model.NotificationModel" />
+        <import type="android.view.View"/>
     </data>
 
         <LinearLayout
@@ -67,6 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="6dp"
                 android:gravity="center"
+                android:visibility='@{model.candle_number==null?View.GONE:View.VISIBLE}'
                 android:background="@drawable/rounded_color2"
                 android:orientation="vertical"
                 android:padding="8dp"

@@ -19,6 +19,9 @@ import com.app.filtar.R;
 import com.app.filtar.databinding.RecentRowBinding;
 import com.app.filtar.model.ProductModel;
 import com.app.filtar.uis.activity_home.market_module.FragmentMarket;
+import com.app.filtar.uis.activity_home_provider.home_module.FragmentHome;
+import com.app.filtar.uis.activity_market_detials.MarketDetialsActivity;
+import com.app.filtar.uis.activity_product_details.ProductDetailsActivity;
 
 import java.util.List;
 
@@ -66,10 +69,17 @@ public class RecentProductAdapter extends RecyclerView.Adapter<RecyclerView.View
 
 
         myHolder.itemView.setOnClickListener(view -> {
-            if (fragment instanceof FragmentMarket) {
-                FragmentMarket fragmentMarket = (FragmentMarket) fragment;
+            if (fragment instanceof FragmentHome) {
+                FragmentHome fragmentMarket = (FragmentHome) fragment;
                 fragmentMarket.showProductDetails(list.get(holder.getAdapterPosition()));
             }
+            else   if (fragment instanceof com.app.filtar.uis.activity_home.home_module.FragmentHome) {
+                com.app.filtar.uis.activity_home.home_module.FragmentHome fragmentMarket = ( com.app.filtar.uis.activity_home.home_module.FragmentHome) fragment;
+                fragmentMarket.showProductDetails(list.get(holder.getAdapterPosition()));
+            }
+            else if (context instanceof ProductDetailsActivity) {
+                ProductDetailsActivity fragmentMarket = (ProductDetailsActivity) context;
+                fragmentMarket.showProductDetails(list.get(holder.getAdapterPosition()));            }
         });
 
     }

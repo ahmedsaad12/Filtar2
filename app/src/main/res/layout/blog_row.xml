@@ -32,15 +32,15 @@
                 <FrameLayout
                     android:id="@+id/flvideo"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_height="300dp">
                     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
                         android:id="@+id/youtube_player_view"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
                         app:autoPlay="false"
-                        app:showFullScreenButton="false"
-                        app:showSeekBar="false"
-                        app:showYouTubeButton="false" />
+                        app:showFullScreenButton="true"
+                        app:showSeekBar="true"
+                        app:showYouTubeButton="true" />
                 </FrameLayout>
             </FrameLayout>
             <LinearLayout
@@ -56,13 +56,14 @@
                     android:layout_height="24dp"
                     android:src="@drawable/ic_calender"
                     android:layout_gravity="center_vertical"
-                    />
+                    app:tint="@color/colorPrimary" />
                 <TextView
                     android:id="@+id/tvtime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/font_regular"
                     android:layout_gravity="center_vertical"
                     android:text='@{model.created_at.split("T")[0]}'
                     android:textColor="@color/black"
@@ -78,6 +79,7 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/font_bold"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="5dp"
@@ -89,8 +91,9 @@
                 android:text='@{model.desc}'
                 android:textSize="14sp"
                 android:lines="4"
+                android:fontFamily="@font/font_regular"
                 android:lineSpacingExtra="5dp"
-                android:textColor="@color/grey7"
+                android:textColor="@color/grey10"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"/>
@@ -101,6 +104,7 @@
                 getTags="@{model}"
                 android:textSize="14sp"
                 android:lines="4"
+                android:fontFamily="@font/font_regular"
                 android:lineSpacingExtra="5dp"
                 android:textColor="@color/colorPrimary"
                 android:layout_marginTop="10dp"

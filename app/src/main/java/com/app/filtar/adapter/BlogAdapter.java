@@ -16,6 +16,7 @@ import com.app.filtar.R;
 import com.app.filtar.databinding.BlogRowBinding;
 import com.app.filtar.model.BlogModel;
 import com.app.filtar.uis.activity_home.explanation_module.FragmentExplanation;
+import com.app.filtar.uis.activity_home.home_module.FragmentHome;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
 
@@ -29,6 +30,7 @@ public class BlogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private LayoutInflater inflater;
     private AppCompatActivity appCompatActivity;
     private Fragment fragment;
+    private YouTubePlayer mYouTubePlayer;
 
     public BlogAdapter(List<BlogModel> list, Context context, Fragment fragment) {
         this.list = list;
@@ -63,6 +65,16 @@ public class BlogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             if (fragment instanceof FragmentExplanation){
                 FragmentExplanation fragmentBlogs=(FragmentExplanation) fragment;
                 fragmentBlogs.navigateToDetails(list.get(position).getId());
+            }else   if (fragment instanceof com.app.filtar.uis.activity_home_provider.explanation_module.FragmentExplanation){
+                com.app.filtar.uis.activity_home_provider.explanation_module.FragmentExplanation fragmentBlogs=(com.app.filtar.uis.activity_home_provider.explanation_module.FragmentExplanation) fragment;
+                fragmentBlogs.navigateToDetails(list.get(position).getId());
+            }
+            if (fragment instanceof FragmentHome){
+                FragmentHome fragmentBlogs=(FragmentHome) fragment;
+                fragmentBlogs.navigateToDetails(list.get(position).getId());
+            }else   if (fragment instanceof com.app.filtar.uis.activity_home_provider.home_module.FragmentHome){
+                com.app.filtar.uis.activity_home_provider.home_module.FragmentHome fragmentBlogs=(com.app.filtar.uis.activity_home_provider.home_module.FragmentHome) fragment;
+                fragmentBlogs.navigateToDetails(list.get(position).getId());
             }
         });
 
@@ -91,17 +103,26 @@ public class BlogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     }
     private void setUpYoutube(BlogRowBinding binding, String url) {
         String videoId = extractYTId(url);
+
+
         if (videoId != null) {
 
             binding.youtubePlayerView.setEnableAutomaticInitialization(false);
-            binding.youtubePlayerView.initialize(new AbstractYouTubePlayerListener() {
-                @Override
-                public void onReady(YouTubePlayer youTubePlayer) {
-                    super.onReady(youTubePlayer);
-                    youTubePlayer.cueVideo(videoId, 0);
+            try {
+                binding.youtubePlayerView.initialize(new AbstractYouTubePlayerListener() {
+                    @Override
+                    public void onReady(YouTubePlayer youTubePlayer) {
+                        super.onReady(youTubePlayer);
+                        youTubePlayer.cueVideo(videoId, 0);
+                        mYouTubePlayer = youTubePlayer;
+                    }
+                }, true)
+                ;
 
-                }
-            }, true);
+            }
+   catch (Exception e){
+       mYouTubePlayer.cueVideo(videoId,0);
+   }
 
 
         } else {

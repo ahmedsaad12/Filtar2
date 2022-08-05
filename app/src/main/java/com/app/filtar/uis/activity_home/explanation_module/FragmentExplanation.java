@@ -1,6 +1,7 @@
 package com.app.filtar.uis.activity_home.explanation_module;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,9 +23,11 @@ import com.app.filtar.databinding.FragmentExplanationBinding;
 import com.app.filtar.databinding.FragmentMoreBinding;
 import com.app.filtar.model.BlogModel;
 import com.app.filtar.model.BlogTagsModel;
+import com.app.filtar.model.CategoryModel;
 import com.app.filtar.mvvm.FragmentExplanationMvvm;
 import com.app.filtar.mvvm.GeneralMvvm;
 import com.app.filtar.uis.activity_base.BaseFragment;
+import com.app.filtar.uis.activity_blogs_details.BlogDetailsActivity;
 import com.app.filtar.uis.activity_home.HomeActivity;
 
 import java.util.ArrayList;
@@ -87,6 +90,7 @@ public class FragmentExplanation extends BaseFragment {
             @Override
             public void onChanged(List<BlogTagsModel> blogTagsModels) {
                 if (blogTagsModels != null && blogTagsModels.size() > 0) {
+                    blogTagsModels.add(0,new BlogTagsModel(getResources().getString(R.string.all)));
                     BlogTagsModel blogTagsModel=blogTagsModels.get(0);
                     blogTagsModel.setSelected(true);
                     blogTagsModels.set(0,blogTagsModel);
@@ -107,6 +111,9 @@ public class FragmentExplanation extends BaseFragment {
 
 
     public void navigateToDetails(String id) {
+        Intent intent=new Intent(activity, BlogDetailsActivity.class);
+        intent.putExtra("data",id);
+        startActivity(intent);
     }
 
     public void show(BlogTagsModel blogTagsModel) {
